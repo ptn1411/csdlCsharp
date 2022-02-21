@@ -44,19 +44,14 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
 
         {
-            OleDbDataAdapter da;
-            OleDbCommand cmd;
-            DataSet ds;
+        
             string _connectionString = "server= " + textBox1.Text + ";database=" + textBox2.Text + ";integrated security=true";
 
-          
-            var DBPath = Application.StartupPath + "test.accdb";
 
-             OleDbConnection  conn = new OleDbConnection("Provider=Microsoft.Jet.OleDb.4.0;"+ "Data Source=" + DBPath);
-             da = new OleDbDataAdapter("SELECT *FROM Table1", conn);
-             ds = new DataSet();
+            OleDbConnection conn = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;" + "Data Source=" + Application.StartupPath + "\\test.accdb");
+  
              conn.Open();
-             conn.Close();
+ 
 
             _connection = new SqlConnection();
             try
